@@ -15,7 +15,8 @@ export class RequestService {
   }
 
   getRequests() {
-    return this.firestore.collection('requests').valueChanges();
+    // Use orderBy to sort the requests by timestamp in descending order
+    return this.firestore.collection('requests', ref => ref.orderBy('timestamp', 'desc')).valueChanges();
   }
 
   updateRequestStatus(requestId: string, status: string) {

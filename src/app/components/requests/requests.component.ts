@@ -13,11 +13,14 @@ export class RequestsComponent {
   showContent?: boolean;
 
   constructor(private requestService: RequestService) {
-    // fetch requests from Firebase
+    // fetch requests from Firebase, sorted by timestamp in descending order
     this.requests$ = this.requestService.getRequests().pipe(
       map((data: any) => {
-        // Convert the data to an array and add the showContent property
-        return Object.keys(data).map(key => ({ ...data[key], showContent: false }));
+        // Convert the data to an array
+        const requestsArray = Object.keys(data).map(key => ({ ...data[key], showContent: false }));
+        
+        // Sort the array by timestamp in descending order
+        return requestsArray.sort((a, b) => b.timestamp - a.timestamp);
       })
     );
   }
@@ -26,14 +29,11 @@ export class RequestsComponent {
     request.showContent = !request.showContent;
   }
 
-  // implement methods to approve or reject requests
   approveRequest(requestId: string) {
-    // update request status to 'approve' in Firestore
     this.requestService.updateRequestStatus(requestId, 'approve');
   }
 
   rejectRequest(requestId: string) {
-    // update request status to 'reject' in Firestore
     this.requestService.updateRequestStatus(requestId, 'reject');
   }
   
