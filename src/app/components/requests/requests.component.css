@@ -1,0 +1,98 @@
+.requests-container {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 20px;
+    padding: 20px;
+    overflow: auto; /* Add overflow: auto to enable scrolling if content exceeds container height */
+}
+
+.requests-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.request-holder {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 5px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+
+.info-container,
+.status,
+.buttons-container {
+    flex: 1;
+    min-width: 0;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.requests-container p {
+    margin: 5px 0;
+}
+
+.container {
+    position: relative;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 1200px;
+    max-height: 600px;
+    overflow-y: scroll;
+    border: 1px solid cornflowerblue;
+    border-radius: 5px;
+    overflow-y: scroll;
+}
+
+button {
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 3px;
+    background-color: #007BFF;
+    color: #fff;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+h2 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(0, 0, 0);
+}
+
+.approve {
+    background-color: rgb(39, 104, 39);
+    color: white;
+}
+
+.approve:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(39, 104, 39);
+    border: 1px solid rgb(39, 104, 39);
+}
+
+.reject {
+    background-color: rgb(173, 48, 39);
+    color: white;
+}
+
+.reject:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(173, 48, 39);
+    border: 1px solid rgb(173, 48, 39);
+}

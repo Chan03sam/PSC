@@ -1,0 +1,107 @@
+<div *ngIf="!authService.isAuthenticated()" class="public-navbar">
+    <ul class="nav-links">
+        <img class="logo" src="/assets/images/banner.png" alt="">
+        <li [class.active]="isActive('/')" (click)="setActive('/')"><a routerLink="/">Home</a></li>
+        <li [class.active]="isActive('/about')" (click)="setActive('/about')"><a routerLink="/about">About Us</a></li>
+    </ul>
+    <div class="signin">
+        <button mat-raised-button color="primary" (click)="openLoginModal()">Sign In</button>
+    </div>
+</div>
+
+<div *ngIf="authService.isAuthenticated() && authService?.role === 'user'" class="user-navbar">
+    <ul class="nav-links">
+        <img class="logo" src="/assets/images/banner.png" alt="">
+        <li [class.active]="isActive('/')" (click)="setActive('/')"><a routerLink="/">Home</a></li>
+        <li [class.active]="isActive('/forms')" (click)="setActive('/forms')"><a routerLink="/forms">Forms</a></li>
+        <li [class.active]="isActive('/history')" (click)="setActive('/history')"><a routerLink="/history">History</a></li>
+        <li [class.active]="isActive('/about')" (click)="setActive('/about')"><a routerLink="/about">About Us</a></li>
+    </ul>
+    <div class="user" [ngClass]="{'active': panelVisible1}" (click)="togglePanel1()">
+        <img *ngIf="profileImageURL; else tempUserIcon" [src]="profileImageURL" alt="Profile Image"/>
+                <ng-template #tempUserIcon>
+                <img src="/assets/images/user_icon.png" alt="Temporary User Icon"/>
+                </ng-template>
+    </div>
+
+    <div class="notif" [ngClass]="{'active': panelVisible2}" (click)="togglePanel2()">
+        <i class="fa-regular fa-bell fa-lg" ng-click="togglePanel()2"></i>
+    </div>
+
+    <div class="panel1" ng-show="panelVisible1" *ngIf="panelVisible1">
+        <button class="logout-button" *ngIf="panelVisible1" (click)="logout()">Logout</button>
+        <button class="editprof" routerLink="view-profile" (click)="closePanel1()">View Profile</button>
+    </div>
+    
+    <div class="panel2" ng-show="panelVisible2" *ngIf="panelVisible2">
+        <h4>Notifications</h4>
+        <hr>
+    </div>
+</div>
+
+<div *ngIf="authService.isAuthenticated() && authService?.role === 'admin'" class="admin-navbar">
+    <ul class="nav-links">
+        <img class="logo" src="/assets/images/banner.png" alt="">
+        <li [class.active]="isActive('/')" (click)="setActive('/')"><a routerLink="/">Home</a></li>
+        <li [class.active]="isActive('/forms')" (click)="setActive('/forms')"><a routerLink="/forms">Forms</a></li>
+        <li [class.active]="isActive('/history')" (click)="setActive('/history')"><a routerLink="/history">History</a></li>
+        <li [class.active]="isActive('/requests')" (click)="setActive('/requests')"><a routerLink="/">Requests</a></li>
+        <li [class.active]="isActive('/user-accounts')" (click)="setActive('/user-accounts')"><a routerLink="/">U.Accounts</a></li>
+        <li [class.active]="isActive('/about')" (click)="setActive('/about')"><a routerLink="/about">About Us</a></li>
+    </ul>
+    <div class="user" [ngClass]="{'active': panelVisible1}" (click)="togglePanel1()">
+        <img *ngIf="profileImageURL; else tempUserIcon" [src]="profileImageURL" alt="Profile Image"/>
+                <ng-template #tempUserIcon>
+                <img src="/assets/images/user_icon.png" alt="Temporary User Icon"/>
+                </ng-template>
+    </div>
+
+    <div class="notif" [ngClass]="{'active': panelVisible2}" (click)="togglePanel2()">
+        <i class="fa-regular fa-bell fa-lg" ng-click="togglePanel()2"></i>
+    </div>
+
+    <div class="panel1" ng-show="panelVisible1" *ngIf="panelVisible1">
+        <button class="logout-button" *ngIf="panelVisible1" (click)="logout()">Logout</button>
+        <button class="editprof" routerLink="view-profile" (click)="closePanel1()">View Profile</button>
+    </div>
+    
+    <div class="panel2" ng-show="panelVisible2" *ngIf="panelVisible2">
+        <h4>Notifications</h4>
+        <hr>
+    </div>
+</div>
+
+<div *ngIf="authService.isAuthenticated() && authService?.role === 'superadmin'" class="superadmin-navbar">
+    <ul class="nav-links">
+        <img class="logo" src="/assets/images/banner.png" alt="">
+        <li [class.active]="isActive('/')" (click)="setActive('/')"><a routerLink="/">Home</a></li>
+        <li [class.active]="isActive('/forms')" (click)="setActive('/forms')"><a routerLink="/forms">Forms</a></li>
+        <li [class.active]="isActive('/dashboard')" (click)="setActive('/dashboard')"><a routerLink="/">Dashboard</a></li>
+        <li [class.active]="isActive('/requests')" (click)="setActive('/requests')"><a routerLink="/">Requests</a></li>
+        <li [class.active]="isActive('/employee-accounts')" (click)="setActive('/employee-accounts')"><a routerLink="/">E.Accounts</a></li>
+        <li [class.active]="isActive('/user-accounts')" (click)="setActive('/user-accounts')"><a routerLink="/">U.Accounts</a></li>
+        <li [class.active]="isActive('/audit-trail')" (click)="setActive('/audit-trail')"><a routerLink="/">Audit-Trail</a></li>
+        <li [class.active]="isActive('/about')" (click)="setActive('/about')"><a routerLink="/about">About Us</a></li>
+    
+    </ul>
+    <div class="user" [ngClass]="{'active': panelVisible1}" (click)="togglePanel1()">
+        <img *ngIf="profileImageURL; else tempUserIcon" [src]="profileImageURL" alt="Profile Image"/>
+                <ng-template #tempUserIcon>
+                <img src="/assets/images/user_icon.png" alt="Temporary User Icon"/>
+                </ng-template>
+    </div>
+
+    <div class="notif" [ngClass]="{'active': panelVisible2}" (click)="togglePanel2()">
+        <i class="fa-regular fa-bell fa-lg" ng-click="togglePanel()2"></i>
+    </div>
+
+    <div class="panel1" ng-show="panelVisible1" *ngIf="panelVisible1">
+        <button class="logout-button" *ngIf="panelVisible1" (click)="logout()" href="/ ">Logout</button>
+        <button class="editprof" routerLink="view-profile" (click)="closePanel1()">View Profile</button>
+    </div>
+    
+    <div class="panel2" ng-show="panelVisible2" *ngIf="panelVisible2">
+        <h4>Notifications</h4>
+        <hr>
+    </div>
+</div>

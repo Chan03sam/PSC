@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="postcontainer">
+        <div class="post-heading">
+            <p><i class="fa-solid fa-pen-to-square"></i> Posts</p>
+        </div>
+        <div class="posting-area">
+            <div class="user">
+                <img *ngIf="profileImageURL; else tempUserIcon" [src]="profileImageURL" alt="Profile Image"/>
+                <ng-template #tempUserIcon>
+                <img src="/assets/images/user_icon.png" alt="Temporary User Icon"/>
+                </ng-template>
+            </div>
+            <textarea class="post-textarea" [(ngModel)]="postContent" placeholder="Write your post..."></textarea>
+            <button class="postbutton" (click)="addPost()"> <i class="fa-solid fa-paper-plane"></i> Post</button>
+        </div>
+        <div *ngFor="let post of posts">
+            <div class="posted-container">
+                <img *ngIf="post.userProfileImageURL; else tempUserIcon" [src]="post.userProfileImageURL" alt="Profile Image"/>
+                <ng-template #tempUserIcon>
+                <img src="/assets/images/user_icon.png" alt="Temporary User Icon"/>
+                </ng-template>
+                <p class="post-owner">{{ post.userName }}</p>
+                <p class="post-content">{{ post.postContent }}</p>
+                <p class="post-date">{{ post.timestamp | timestamp }}</p>
+                <button class="delete-post" (click)="deletePost(post)">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

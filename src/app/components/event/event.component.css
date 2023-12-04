@@ -1,0 +1,10 @@
+.eventcontainer{
+    position: absolute;
+    width: 540px;
+    height: 300px;
+    top: 146vh;
+    margin: 90px -10px 20px 60%;
+    border-style: solid;
+    font-family: "Segoe UI";
+    background-color: cornflowerblue;
+}

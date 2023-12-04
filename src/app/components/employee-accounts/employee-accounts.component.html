@@ -1,0 +1,30 @@
+<div class="employee-accounts-container">
+    <h1>Employee Accounts</h1>
+    <div class="add-employee">
+        <input type="email" [(ngModel)]="newAdminEmail" name="email" id="" placeholder="example@gmail.com">
+        <button (click)="addAdmin()" class="add">Add</button>
+        <button (click)="removeAdmin()" class="remove">Remove</button>
+    </div>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>UID</th>
+                <th>Registration Timestamp</th>
+                <!-- Add more columns as needed -->
+                </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of users">
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.uid }}</td>
+                <td>{{ user.registrationTimestamp | date: 'medium' }}</td>
+                <!-- Add more columns as needed -->
+                </tr>
+            </tbody>
+            </table>
+    </div>
+</div>

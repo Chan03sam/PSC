@@ -1,0 +1,74 @@
+<div class="requests-container">
+    <h2>Document Requests Processing</h2>
+    <div class="container">
+        <div class="request-holder" *ngFor="let request of requests$ | async">
+            <div class="info-container">
+                <h4>{{request.formType}}</h4>
+            </div>
+            <div class="status">
+                <p>Status: {{request.status}}</p>
+            </div>
+            <div class="buttons-container">
+                <button class="view" (click)="toggleContent(request)">View</button>
+                <button class="approve" (click)="approveRequest(request.id)">Approve</button>
+                <button class="reject" (click)="rejectRequest(request.id)">Reject</button>
+            </div>
+            <div *ngIf="request.showContent && request.formType == 'Barangay Clearance'" >
+                <p>Request from: {{ request.name }}</p>
+                <p>UID: {{request.userID}}</p>
+                <p>Address: {{ request.address }}</p>
+                <p>Purpose of request: {{ request.purpose }}</p>
+                <p>Status: {{ request.status }}</p>
+            </div>
+            <div *ngIf="request.showContent && request.formType == 'Business Clearance'" >
+                <p>Request from: {{ request.name }}</p>
+                <p>UID: {{request.userID}}</p>
+                <p>Business Name: {{ request.business}}</p>
+                <p>Business Address: {{ request.businessaddress }}</p>
+                <p>Status: {{ request.status }}</p>
+            </div>
+            <div *ngIf="request.showContent && request.formType == 'Certificate of Indigency'" >
+                <p>Request from: {{ request.name }}</p>
+                <p>UID: {{request.userID}}</p>
+                <p>Address: {{ request.address }}</p>
+                <p>Purpose of request: {{ request.purpose }}</p>
+                <p>Status: {{ request.status }}</p>
+            </div>
+            <div *ngIf="request.showContent && request.formType == 'Certificate of Cohabitation'" >
+                <p>Request from: {{ request.name }}</p>
+                <p>Birthdate: {{ request.birthdate}}</p>
+                <p>Partner's Name: {{request.partnersName}}</p>
+                <p>Partner's Birthdate: {{request.partnersBirthdate}} </p>
+                <p>Spouses since: {{request.spousesince}}</p>
+                <p>UID: {{request.userID}}</p>
+                <p>Address: {{ request.address }}</p>
+                <p>Purpose of request: {{ request.purpose }}</p>
+                <p>Status: {{ request.status }}</p>
+            </div>
+            <div *ngIf="request.showContent && request.formType == 'Certificate of Residency'" >
+                <p>Request from: {{ request.name }}</p>
+                <p>UID: {{request.userID}}</p>
+                <p>Address: {{ request.address }}</p>
+                <p>Years of Residency: {{request.yearsofresidency}}</p>
+                <p>Purpose of Request: {{ request.purpose }}</p>
+                <p>Status: {{ request.status }}</p>
+            </div>
+            <div *ngIf="request.showContent && request.formType == 'Certificate of Good-Moral'" >
+                <p>Request from: {{ request.name }}</p>
+                <p>UID: {{request.userID}}</p>
+                <p>Address: {{ request.address }}</p>
+                <p>Purpose of request: {{ request.purpose }}</p>
+                <p>Status: {{ request.status }}</p>
+            </div>
+            <div *ngIf="request.showContent && request.formType == 'Certificate of Guardianship'" >
+                <p>Request from: {{ request.name }}</p>
+                <p>UID: {{request.userID}}</p>
+                <p>Address: {{ request.address }}</p>
+                <p>Child's Name: {{request.childsname}}</p>
+                <p>Child's Birthdate: {{request.childsbirthdate}}</p>
+                <p>Child's Age: {{request.childsage}}</p>
+                <p>Status: {{ request.status }}</p>
+            </div>
+        </div>
+    </div>
+</div>
