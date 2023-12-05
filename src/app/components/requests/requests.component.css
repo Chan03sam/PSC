@@ -28,12 +28,25 @@
 
 .info-container,
 .status,
-.buttons-container {
+.buttons-container,
+.requester,
+.avatar,
+.datefiled {
     flex: 1;
     min-width: 0;
     display: flex; 
     justify-content: center;
     align-items: center;
+}
+
+.avatar img{
+    position: relative;
+    left: -50px;
+    width: 42px;
+    height: 42px;
+}
+.requester{
+    margin-left: -100px;
 }
 
 .requests-container p {

@@ -12,11 +12,20 @@
             </div>
         </div>
         <div class="request-holder" *ngFor="let request of requests$ | async">
+            <div class="avatar">
+                <img src="assets/images/user_icon.png" alt="">
+            </div>
+            <div class="requester">
+                <p>{{request.name}}</p>
+            </div>
             <div class="info-container">
                 <h4>{{request.formType}}</h4>
             </div>
+            <div class="datefiled">
+                <p>{{request.timestamp}}</p>
+            </div>
             <div class="status">
-                <p>Status: {{request.status}}</p>
+                <p>{{request.status}}</p>
             </div>
             <div class="buttons-container">
                 <button class="view" (click)="toggleContent(request)">View</button>
