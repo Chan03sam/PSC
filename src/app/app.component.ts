@@ -9,7 +9,6 @@ import { ChangeDetectorRef } from '@angular/core';
 })
 export class AppComponent {
   title = 'PSC';
-  isLoading: boolean = true;
 
   constructor(
     private spinner: NgxSpinnerService,
@@ -19,8 +18,7 @@ export class AppComponent {
       this.spinner.show();
     setTimeout(() => {
       this.hideSpinner();
-      this.isLoading=false;
-    }, 2000);
+    }, 5000);
   }
 
   hideSpinner() {

@@ -53,6 +53,63 @@
     overflow-y: scroll;
 }
 
+.header {
+    background-color: #f2f2f2;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.pend{
+    color: #0056b3; 
+}
+.app{
+    color: rgb(39, 104, 39);
+}
+.rej{
+    color: rgb(173, 48, 39);
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+a {
+    text-decoration: none;
+    display: block;
+    padding: 8px 16px;
+    background-color: #ddd;
+    color: #333;
+    float: left;
+    font-weight: 500;
+}
+
+.searchbar {
+    float: right;
+}
+
+.searchbar input[type="text"] {
+    padding: 8px;
+    margin-top: 8px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+.search {
+    padding: 8px;
+    background-color: cornflowerblue;
+    border: none;
+}
+
 button {
     cursor: pointer;
     padding: 5px 10px;

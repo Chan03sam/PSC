@@ -1,6 +1,16 @@
 <div class="requests-container">
     <h2>Document Requests Processing</h2>
     <div class="container">
+        <div class="header">
+            <ul>
+                <li><a class="pend" href="">Pending</a></li>
+                <li><a class="app" href="">Approved</a></li>
+                <li><a class="rej" href="">Rejected</a></li>
+            </ul>
+            <div class="searchbar">
+                <input type="text" placeholder="Search..." /><button class="search" ><i class="fa fa-search"></i></button>
+            </div>
+        </div>
         <div class="request-holder" *ngFor="let request of requests$ | async">
             <div class="info-container">
                 <h4>{{request.formType}}</h4>

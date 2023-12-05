@@ -1,7 +1,5 @@
-<div *ngIf="isLoading; else content">
+
     <app-loading></app-loading>
-</div>
-<ng-template #content>
     <app-header></app-header>
     <app-banner></app-banner>
     <div class="sec2"></div>
@@ -10,4 +8,3 @@
     <app-event></app-event>
     <router-outlet></router-outlet>
     <app-navbar></app-navbar>
-</ng-template>
